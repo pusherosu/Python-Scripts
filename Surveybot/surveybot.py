@@ -10,8 +10,8 @@ URL='Public url of the survey'
 #functions
 def do_survey ( firstname , lastname ):
 	Form = driver.find_element_by_name('element name for the form itself') #The form
-	LN = driver.find_element_by_name('element name for voter last name') #voter last name element is a text field
-	FN = driver.find_element_by_name('element name for voter first name') #voter first name element is a text field
+	ln = driver.find_element_by_name('element name for voter last name') #voter last name element is a text field
+	fn = driver.find_element_by_name('element name for voter first name') #voter first name element is a text field
 	Country = Select(driver.find_element_by_name('element name for country')) #Country element is a dropdown
 	Site = Select(driver.find_element_by_name('element name for site')) #Site element is a dropdown
 	Lastname = driver.find_element_by_name('element name for traget last name') #Lastname is a text field
@@ -26,11 +26,11 @@ def do_survey ( firstname , lastname ):
 	Firstname.send_keys(firstname);
 	time.sleep(1)
 
-	LN.clear()
-	LN.send_keys('Capt. Chas');
+	ln.clear()
+	ln.send_keys('Capt. Chas');
 	time.sleep(1)
-	FN.clear()
-	FN.send_keys('Rathing');
+	fn.clear()
+	fn.send_keys('Rathing');
 	time.sleep(1)
 	Country.select_by_value('element name for selected country')
 	time.sleep(1)
