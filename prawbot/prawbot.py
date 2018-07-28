@@ -10,7 +10,7 @@ subreddit = reddit.subreddit("hooksplays")
 
 start_time = time.time()
 
-link_text = ('dickpix','askgaybrows','grindr',
+link_text = ('dickpix','askgaybros','grindr',
 	'lgbt','ainbow','transgendercirclejerk',
 	'inthecloset','sissyplace')
 
