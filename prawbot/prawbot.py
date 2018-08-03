@@ -26,13 +26,13 @@ def start_stream(USERNAME):
 			submission.reply(reply_text)
 		
 if __name__ == "__main__":
-	print("Initializing stream...\n")
+	print("{}: Initializing stream...\n").format(time.ctime())
 	while True:
 		try:
 			start_stream(USERNAME)
 		except praw.exceptions.PRAWException as e:
-			print ("Exception: {}. Starting cooldown timer.\n").format(e)
+			print ("{}: Exception: {}. Starting cooldown timer.\n").format(time.ctime(),e)
 			time.sleep(RATE_LIMIT)
 			start_time = time.time() # Reset the timer to ignore posts made during the rate limit cooldown
-			print("Restarting stream...\n")
+			print("{}: Restarting stream...\n").format(time.ctime())
 			pass
