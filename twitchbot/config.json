@@ -1,0 +1,9 @@
+{
+	"server": "irc.chat.twitch.tv",
+	"port": 6667, 
+	"oauth": "",
+	"channel":"",
+	"username": "",
+	"oauth2" : "",
+	"admins": ["admin1", "admin2", "admin3"]
+}
