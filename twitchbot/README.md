@@ -1,6 +1,6 @@
 Twitch chat logger
 
-This utility captures chat information and dumps it into an sql database for later use. 
+This utility captures chat information and dumps it into an sql database for later use.\n
 The current version also supports rudimentary !commands
 
 Needed files:
