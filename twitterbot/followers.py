@@ -23,14 +23,14 @@ try:
 			o.access_token_secret)
 	
 except Exception as e:
-	logging.critical("Exception: {}")
+	logging.critical("Exception: {}".format(e))
 				 
 PM = "Thank you for the follow. I hope I can count on your support in 2020. #DevnullforPresident #Devnull2020"
 				 
 followers = []
 friends = []
 nCount = 0
-uid = 2269728347 # user id of the monitoring account
+uid = # user id of the monitoring account
 
 # Get current list of followers
 for id in api.request('followers/ids'):
