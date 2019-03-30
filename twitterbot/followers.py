@@ -18,10 +18,9 @@ try:
 	logging.debug("Retrieving credentials")
 	o=TwitterOAuth.read_file()
 	api = TwitterAPI(o.consumer_key,
-			o.consumer_secret,
-			o.access_token_key,
-			o.access_token_secret)
-	
+					o.consumer_secret,
+					o.access_token_key,
+					o.access_token_secret)
 except Exception as e:
 	logging.critical("Exception: {}".format(e))
 				 
@@ -44,18 +43,28 @@ for id in api.request('friends/ids'):
 # Build a list of users the bot does not currently follow and
 # give them a return follow
 non_follows = [follower for follower in followers if follower not in friends]
-
 for id in non_follows:
 	r = api.request('friendships/create', {'user_id': id})
 	if r.status_code == 200:
 		status = r.json()
-		logging.debug('Not currently following {}, but they are following me. Attempting to follow...'.format(status['screen_name']))
+		logging.debug("Not currently following {}, but they are following me. Attempting to follow...".format(status['screen_name']))
 		
 	r = api.request('direct_messages/new', {'user_id': id , 'text': PM})
 	logging.debug("Sending PM to user id {}".format(id))
 	nCount += 1
-	
 logging.info("{} new followers added.".format(nCount))
+
+# Unfollow anyone who has unfollowed us
+non_friends = [friend for friend in friends if friend not in followers]
+nCount = 0
+for id in non_friends:
+	r = api.request('friendships/destroy', {'user_id': id})
+	if r.status_code == 200:
+		status = r.json()
+		logging.debug("unfollowed the traitor known as {}...".format(status['screen_name']))
+	nCount += 1
+logging.info("{} new traitors removed.".format(nCount))
+		
 STATUS_MSG = "Updated version is online. {} new followers added.".format(nCount)
 r = api.request('direct_messages/new', {'user_id': uid , 'text': STATUS_MSG})
 logging.info("Shutting down...")
