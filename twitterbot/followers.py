@@ -29,7 +29,7 @@ PM = "Thank you for the follow. I hope I can count on your support in 2020. #Dev
 followers = []
 friends = []
 nCount = 0
-uid = # user id of the monitoring account
+uid = 2269728347 # user id of the monitoring account
 
 # Get current list of followers
 for id in api.request('followers/ids'):
@@ -48,6 +48,7 @@ for id in non_follows:
 	if r.status_code == 200:
 		status = r.json()
 		logging.debug("Not currently following {}, but they are following me. Attempting to follow...".format(status['screen_name']))
+		friends.append(id)
 		
 	r = api.request('direct_messages/new', {'user_id': id , 'text': PM})
 	logging.debug("Sending PM to user id {}".format(id))
