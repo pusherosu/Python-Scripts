@@ -29,7 +29,7 @@ PM = "Thank you for the follow. I hope I can count on your support in 2020. #Dev
 followers = []
 friends = []
 nCount = 0
-uid = 2269728347 # user id of the monitoring account
+uid = # user id of the monitoring account
 
 # Get current list of followers
 for id in api.request('followers/ids'):
