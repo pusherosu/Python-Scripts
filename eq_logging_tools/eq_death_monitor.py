@@ -39,10 +39,9 @@ if sys.version_info[0] < 3:
 
 logging.info("Starting eq_monitor.py...")
 print("Starting eq_monitor.py...")
-FILE_LIST_DIRECTORY = 0x0001
 hDir = win32file.CreateFile (
 	path_to_watch,
-	FILE_LIST_DIRECTORY,
+	win32con.GENERIC_READ,
 	win32con.FILE_SHARE_READ | win32con.FILE_SHARE_WRITE,
 	None,
 	win32con.OPEN_EXISTING,
