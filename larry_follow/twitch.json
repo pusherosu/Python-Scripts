@@ -1,0 +1,9 @@
+{
+	"server": "irc.chat.twitch.tv",
+	"port": 6667, 
+	"oauth": "", # You supply
+	"channel":"", # You supply
+	"username": "", # You supply
+	"oauth2" : "", # You supply
+	"appid" : "" # You supply
+}
