@@ -1,10 +1,9 @@
 import time
-seconds = 360
+seconds = 300 #300 seconds = 5 minutes
 
 def countdown(t):
-	#with open('timer.txt', 'w') as f:
 	while t:
-		mins, secs = divmod(t, 60)
+		mins, secs = divmod((t-1), 60)
 		timeformat = '{:02d}:{:02d}'.format(mins, secs)
 		f = open('timer.txt','w')
 		f.write(timeformat)
